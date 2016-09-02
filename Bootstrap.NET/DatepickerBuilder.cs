@@ -12,11 +12,11 @@ namespace Bootstrap.NET
     {
         public bool AllProperitesInNewLine { get; set; } = true;
         public bool? Autoclose { get; set; }
-        private Function<DateTime> BeforeShowDay { get; set; }
-        private Function<DateTime> BeforeShowMonth { get; set; }
-        private Function<DateTime> BeforeShowYear { get; set; }
-        private Function<DateTime> BeforeShowDecade { get; set; }
-        private Function<DateTime> BeforeShowCentury { get; set; }
+        public Function<DateTime> BeforeShowDay { get; set; }
+        public Function<DateTime> BeforeShowMonth { get; set; }
+        public Function<DateTime> BeforeShowYear { get; set; }
+        public Function<DateTime> BeforeShowDecade { get; set; }
+        public Function<DateTime> BeforeShowCentury { get; set; }
         public bool? CalendarWeeks { get; set; }
         public bool? ClearBtn { get; set; }
         public string Container { get; set; }
@@ -35,7 +35,7 @@ namespace Bootstrap.NET
             }
         }
         public byte[] DaysOfWeekHighlighted { get; set; }
-        Tuple<int, byte, byte> DefaultViewDate { get; set; }
+        public Date? DefaultViewDate { get; set; }
         public bool? DisableTouchKeyboard { get; set; }
         public bool? EnableOnReadonly { get; set; }
         public DateTime? EndDate { get; set; }
@@ -47,14 +47,14 @@ namespace Bootstrap.NET
         public bool? KeepEmptyValues { get; set; }
         public bool? KeyboardNavigation { get; set; }
         public string Language { get; set; }
-        public Tuple<int, string> MaxViewMode { get; set; }
-        public Tuple<int, string> MinViewMode { get; set; }
+        public StringInt? MaxViewMode { get; set; }
+        public StringInt? MinViewMode { get; set; }
         public BoolInt? Multidate { get; set; }
         public char? MultidateSeparator { get; set; }
         public string Orientation { get; set; }
         public bool? ShowOnFocus { get; set; }
         public DateTime? StartDate { get; set; }
-        public Tuple<int, string> StartView { get; set; }
+        public StringInt? StartView { get; set; }
         public Dictionary<string, string> Templates { get; set; }
         public string Title { get; set; }
         public bool? TodayBtn { get; set; }
@@ -77,36 +77,36 @@ namespace Bootstrap.NET
                 builder.AppendLineWithoutNullOrEmpty(Formatted(GetValue("calendarWeeks", CalendarWeeks)));
                 builder.AppendLineWithoutNullOrEmpty(Formatted(GetValue("clearBtn", ClearBtn)));
                 builder.AppendLineWithoutNullOrEmpty(Formatted(GetValue("container", Container)));
-                builder.AppendLineWithoutNullOrEmpty(Formatted(GetValue("datesDisabled", DatesDisabled)));
+                builder.AppendLineWithoutNullOrEmpty(Formatted(GetValue("datesDisabled", DatesDisabled,Format)));
                 builder.AppendLineWithoutNullOrEmpty(Formatted(GetValue("daysOfWeekDisabled", DaysOfWeekDisabled)));
                 builder.AppendLineWithoutNullOrEmpty(Formatted(GetValue("daysOfWeekHighlighted", DaysOfWeekHighlighted)));
                 builder.AppendLineWithoutNullOrEmpty(Formatted(GetValue("defaultViewDate", DefaultViewDate)));
                 builder.AppendLineWithoutNullOrEmpty(Formatted(GetValue("disableTouchKeyboard", DisableTouchKeyboard)));
                 builder.AppendLineWithoutNullOrEmpty(Formatted(GetValue("enableOnReadonly", EnableOnReadonly)));
-                builder.AppendLineWithoutNullOrEmpty(Formatted(GetValue("enableOnReadonly", EndDate)));
-                builder.AppendLineWithoutNullOrEmpty(Formatted(GetValue("enableOnReadonly", ForceParse)));
-                builder.AppendLineWithoutNullOrEmpty(Formatted(GetValue("enableOnReadonly", AssumeNearbyYear)));
-                builder.AppendLineWithoutNullOrEmpty(Formatted(GetValue("enableOnReadonly", Format)));
-                builder.AppendLineWithoutNullOrEmpty(Formatted(GetValue("enableOnReadonly", ImmediateUpdates)));
-                builder.AppendLineWithoutNullOrEmpty(Formatted(GetValue("enableOnReadonly", Inputs)));
-                builder.AppendLineWithoutNullOrEmpty(Formatted(GetValue("enableOnReadonly", KeepEmptyValues)));
-                builder.AppendLineWithoutNullOrEmpty(Formatted(GetValue("enableOnReadonly", KeyboardNavigation)));
-                builder.AppendLineWithoutNullOrEmpty(Formatted(GetValue("enableOnReadonly", Language)));
-                builder.AppendLineWithoutNullOrEmpty(Formatted(GetValue("enableOnReadonly", MaxViewMode)));
-                builder.AppendLineWithoutNullOrEmpty(Formatted(GetValue("enableOnReadonly", MinViewMode)));
-                builder.AppendLineWithoutNullOrEmpty(Formatted(GetValue("enableOnReadonly", Multidate)));
-                builder.AppendLineWithoutNullOrEmpty(Formatted(GetValue("enableOnReadonly", MultidateSeparator)));
-                builder.AppendLineWithoutNullOrEmpty(Formatted(GetValue("enableOnReadonly", Orientation)));
-                builder.AppendLineWithoutNullOrEmpty(Formatted(GetValue("enableOnReadonly", ShowOnFocus)));
-                builder.AppendLineWithoutNullOrEmpty(Formatted(GetValue("enableOnReadonly", StartDate)));
-                builder.AppendLineWithoutNullOrEmpty(Formatted(GetValue("enableOnReadonly", StartView)));
-                builder.AppendLineWithoutNullOrEmpty(Formatted(GetValue("enableOnReadonly", Templates)));
-                builder.AppendLineWithoutNullOrEmpty(Formatted(GetValue("enableOnReadonly", Title)));
-                builder.AppendLineWithoutNullOrEmpty(Formatted(GetValue("enableOnReadonly", TodayBtn)));
-                builder.AppendLineWithoutNullOrEmpty(Formatted(GetValue("enableOnReadonly", TodayHighlight)));
-                builder.AppendLineWithoutNullOrEmpty(Formatted(GetValue("enableOnReadonly", ToggleActive)));
-                builder.AppendLineWithoutNullOrEmpty(Formatted(GetValue("enableOnReadonly", WeekStart)));
-                builder.AppendLineWithoutNullOrEmpty(Formatted(GetValue("enableOnReadonly", ZIndexOffset)));
+                builder.AppendLineWithoutNullOrEmpty(Formatted(GetValue("endDate", EndDate, Format)));
+                builder.AppendLineWithoutNullOrEmpty(Formatted(GetValue("forceParse", ForceParse)));
+                builder.AppendLineWithoutNullOrEmpty(Formatted(GetValue("assumeNearbyYear", AssumeNearbyYear)));
+                builder.AppendLineWithoutNullOrEmpty(Formatted(GetValue("format", Format)));
+                builder.AppendLineWithoutNullOrEmpty(Formatted(GetValue("immediateUpdates", ImmediateUpdates)));
+                builder.AppendLineWithoutNullOrEmpty(Formatted(GetValue("inputs", Inputs)));
+                builder.AppendLineWithoutNullOrEmpty(Formatted(GetValue("keepEmptyValues", KeepEmptyValues)));
+                builder.AppendLineWithoutNullOrEmpty(Formatted(GetValue("keyboardNavigation", KeyboardNavigation)));
+                builder.AppendLineWithoutNullOrEmpty(Formatted(GetValue("language", Language)));
+                builder.AppendLineWithoutNullOrEmpty(Formatted(GetValue("maxViewMode", MaxViewMode)));
+                builder.AppendLineWithoutNullOrEmpty(Formatted(GetValue("minViewMode", MinViewMode)));
+                builder.AppendLineWithoutNullOrEmpty(Formatted(GetValue("multidate", Multidate)));
+                builder.AppendLineWithoutNullOrEmpty(Formatted(GetValue("multidateSeparator", MultidateSeparator)));
+                builder.AppendLineWithoutNullOrEmpty(Formatted(GetValue("orientation", Orientation)));
+                builder.AppendLineWithoutNullOrEmpty(Formatted(GetValue("showOnFocus", ShowOnFocus)));
+                builder.AppendLineWithoutNullOrEmpty(Formatted(GetValue("startDate", StartDate, Format)));
+                builder.AppendLineWithoutNullOrEmpty(Formatted(GetValue("startView", StartView)));
+                builder.AppendLineWithoutNullOrEmpty(Formatted(GetValue("templates", Templates)));
+                builder.AppendLineWithoutNullOrEmpty(Formatted(GetValue("title", Title)));
+                builder.AppendLineWithoutNullOrEmpty(Formatted(GetValue("todayBtn", TodayBtn)));
+                builder.AppendLineWithoutNullOrEmpty(Formatted(GetValue("todayHighlight", TodayHighlight)));
+                builder.AppendLineWithoutNullOrEmpty(Formatted(GetValue("toggleActive", ToggleActive)));
+                builder.AppendLineWithoutNullOrEmpty(Formatted(GetValue("weekStart", WeekStart)));
+                builder.AppendLineWithoutNullOrEmpty(Formatted(GetValue("zIndexOffset", ZIndexOffset)));
             }
             else
             {
@@ -119,36 +119,36 @@ namespace Bootstrap.NET
                 builder.Append(Formatted(GetValue("calendarWeeks", CalendarWeeks)));
                 builder.Append(Formatted(GetValue("clearBtn", ClearBtn)));
                 builder.Append(Formatted(GetValue("container", Container)));
-                builder.Append(Formatted(GetValue("datesDisabled", DatesDisabled)));
+                builder.Append(Formatted(GetValue("datesDisabled", DatesDisabled,Format)));
                 builder.Append(Formatted(GetValue("daysOfWeekDisabled", DaysOfWeekDisabled)));
                 builder.Append(Formatted(GetValue("daysOfWeekHighlighted", DaysOfWeekHighlighted)));
                 builder.Append(Formatted(GetValue("defaultViewDate", DefaultViewDate)));
                 builder.Append(Formatted(GetValue("disableTouchKeyboard", DisableTouchKeyboard)));
                 builder.Append(Formatted(GetValue("enableOnReadonly", EnableOnReadonly)));
-                builder.Append(Formatted(GetValue("enableOnReadonly", EndDate)));
-                builder.Append(Formatted(GetValue("enableOnReadonly", ForceParse)));
-                builder.Append(Formatted(GetValue("enableOnReadonly", AssumeNearbyYear)));
-                builder.Append(Formatted(GetValue("enableOnReadonly", Format)));
-                builder.Append(Formatted(GetValue("enableOnReadonly", ImmediateUpdates)));
-                builder.Append(Formatted(GetValue("enableOnReadonly", Inputs)));
-                builder.Append(Formatted(GetValue("enableOnReadonly", KeepEmptyValues)));
-                builder.Append(Formatted(GetValue("enableOnReadonly", KeyboardNavigation)));
-                builder.Append(Formatted(GetValue("enableOnReadonly", Language)));
-                builder.Append(Formatted(GetValue("enableOnReadonly", MaxViewMode)));
-                builder.Append(Formatted(GetValue("enableOnReadonly", MinViewMode)));
-                builder.Append(Formatted(GetValue("enableOnReadonly", Multidate)));
-                builder.Append(Formatted(GetValue("enableOnReadonly", MultidateSeparator)));
-                builder.Append(Formatted(GetValue("enableOnReadonly", Orientation)));
-                builder.Append(Formatted(GetValue("enableOnReadonly", ShowOnFocus)));
-                builder.Append(Formatted(GetValue("enableOnReadonly", StartDate)));
-                builder.Append(Formatted(GetValue("enableOnReadonly", StartView)));
-                builder.Append(Formatted(GetValue("enableOnReadonly", Templates)));
-                builder.Append(Formatted(GetValue("enableOnReadonly", Title)));
-                builder.Append(Formatted(GetValue("enableOnReadonly", TodayBtn)));
-                builder.Append(Formatted(GetValue("enableOnReadonly", TodayHighlight)));
-                builder.Append(Formatted(GetValue("enableOnReadonly", ToggleActive)));
-                builder.Append(Formatted(GetValue("enableOnReadonly", WeekStart)));
-                builder.Append(Formatted(GetValue("enableOnReadonly", ZIndexOffset)));
+                builder.Append(Formatted(GetValue("endDate", EndDate, Format)));
+                builder.Append(Formatted(GetValue("forceParse", ForceParse)));
+                builder.Append(Formatted(GetValue("assumeNearbyYear", AssumeNearbyYear)));
+                builder.Append(Formatted(GetValue("format", Format)));
+                builder.Append(Formatted(GetValue("immediateUpdates", ImmediateUpdates)));
+                builder.Append(Formatted(GetValue("inputs", Inputs)));
+                builder.Append(Formatted(GetValue("keepEmptyValues", KeepEmptyValues)));
+                builder.Append(Formatted(GetValue("keyboardNavigation", KeyboardNavigation)));
+                builder.Append(Formatted(GetValue("language", Language)));
+                builder.Append(Formatted(GetValue("maxViewMode", MaxViewMode)));
+                builder.Append(Formatted(GetValue("minViewMode", MinViewMode)));
+                builder.Append(Formatted(GetValue("multidate", Multidate)));
+                builder.Append(Formatted(GetValue("multidateSeparator", MultidateSeparator)));
+                builder.Append(Formatted(GetValue("orientation", Orientation)));
+                builder.Append(Formatted(GetValue("showOnFocus", ShowOnFocus)));
+                builder.Append(Formatted(GetValue("startDate", StartDate, Format)));
+                builder.Append(Formatted(GetValue("startView", StartView)));
+                builder.Append(Formatted(GetValue("templates", Templates)));
+                builder.Append(Formatted(GetValue("title", Title)));
+                builder.Append(Formatted(GetValue("todayBtn", TodayBtn)));
+                builder.Append(Formatted(GetValue("todayHighlight", TodayHighlight)));
+                builder.Append(Formatted(GetValue("toggleActive", ToggleActive)));
+                builder.Append(Formatted(GetValue("weekStart", WeekStart)));
+                builder.Append(Formatted(GetValue("zIndexOffset", ZIndexOffset)));
             }
             builder.Append("})");
             var value = builder.ToString();
@@ -157,11 +157,25 @@ namespace Bootstrap.NET
             return value;
         }
 
+        private string GetValue(string title, Date? o)
+        {
+            if (!o.HasValue)
+                return "";
+            return $"{title}:\t{{{o}}}";
+        }
+
+        private string GetValue(string title, StringInt? o)
+        {
+            if (!o.HasValue)
+                return "";
+            return $"{title}:\t{o}";
+        }
+
         private static string GetValue(string title, BoolInt? o)
         {
             if (!o.HasValue)
                 return "";
-            return $"{title}:{o}";
+            return $"{title}:\t{o}";
             //TODO : poprawic
         }
 
@@ -170,7 +184,7 @@ namespace Bootstrap.NET
         {
             if (o == null)
                 return "";
-            return $"{title}:{o}";
+            return $"{title}:\t{o}";
             //TODO : poprawic
         }
 
@@ -179,63 +193,60 @@ namespace Bootstrap.NET
 
             if (o == null)
                 return "";
-            return $"{title}:{o}";
+            return $"{title}:\t{o}";
             //TODO : poprawic
         }
 
-        private static string GetValue(string title, Tuple<int, string> o)
-        {
-            if (o == null)
-                return "";
-            return $"{title}:{o}";
-            //TODO : poprawic
-        }
 
 
         private static string GetValue(string title, Tuple<int, byte, byte> o)
         {
             if (o == null)
                 return "";
-            return $"{title}:{o}";
+            return $"{title}:\t{o}";
             //TODO : poprawic
         }
 
         private static string GetValue(string title, string o)
         {
-            if (o == null)
-                return "";
-            return $"{title}:{o}";
+            return o == null ? "" : $"{title}:\t\"{o}\"";
         }
 
         private static string GetValue(string title, bool? o)
         {
-            if (o == null)
-                return "";
-            return $"{title}:{o}";
+            if (o == null) return "";
+            var value = o.Value ? "true" : "false";
+            return $"{title}:\t{value}";
         }
+
         private static string GetValue(string title, int? o)
         {
             if (o == null)
                 return "";
-            return $"{title}:{o}";
+            return $"{title}:\t{o}";
         }
-        private static string GetValue(string title, DateTime? o)
+        private static string GetValue(string title, DateTime? o, string format)
         {
             if (o == null)
                 return "";
-            return $"{title}:{o}";
+            string date = format == null ? o.Value.ToString("yyy/mm/dd") : o.Value.ToString(format);
+            return $"{title}:\t{date}";
         }
-        private static string GetValue<T>(string title, Function<T> o)
+        private static string GetValue(string title, Function o)
         {
             if (o == null)
                 return "";
-            return $"{title}:{o}";
+            var parametersString = string.Join(",", o.Args);
+            string value = $"\t\tfunction{o.Name}({parametersString}){{{Environment.NewLine}\t\t\t{o.Body}{Environment.NewLine}\t\t}}";
+
+            return $"{title}:{Environment.NewLine}{value}";
         }
-        private static string GetValue(string title, DateTime[] o)
+        private static string GetValue(string title, DateTime[] o, string format)
         {
             if (o == null)
                 return "";
-            return $"{title}:{o}";
+            string value = o.Aggregate("", (current, dateTime) => current +", '"+ (format == null ? dateTime.ToString("yyyy-mm-dd") : dateTime.ToString(format))+"'");
+            return $"{title}:\t{value}";
             //TODO : poprawa wypisywania
         }
         private static string GetValue(string title, byte[] o)
@@ -243,14 +254,14 @@ namespace Bootstrap.NET
             if (o == null || o.Length == 0)
                 return "";
             var data = $"\t\"{string.Join(", ", o)}\"";
-            return $"{title}:{data}";
+            return $"{title}:\t{data}";
         }
 
         private static string Formatted(string line)
         {
             if (string.IsNullOrEmpty(line))
                 return "";
-            return $"\t{line}";
+            return $"\t{line},";
         }
     }
 }

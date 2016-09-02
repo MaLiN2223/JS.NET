@@ -58,6 +58,14 @@
       <Project>{8c60b9b4-b085-4e61-85a0-6bcc4cf71dc5}</Project>
       <Name>Bootstrap.NET</Name>
     </ProjectReference>
+    <ProjectReference Include="..\JS.NET.csproj">
+      <Project>{c1ac3b45-0fe7-4dae-bc12-e364c9d38a3a}</Project>
+      <Name>JS.NET</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Utils\Utils.csproj">
+      <Project>{d5bc8683-a299-4a1d-8e79-b11c17c2f34e}</Project>
+      <Name>Utils</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
